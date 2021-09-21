@@ -193,8 +193,9 @@ defmodule DocuSign.Api.Envelopes do
           {:ok, DocuSign.Model.EnvelopeUpdateSummary.t()} | {:error, Tesla.Env.t()}
   def envelopes_put_envelope(connection, account_id, envelope_id, opts \\ []) do
     optional_params = %{
-      advanced_update: :query,
-      resend_envelope: :query,
+      # Temporay excude these fields to avoid API error(INVALID_CONTENT_TYPE) which cause by using Testla.Multipart
+      #advanced_update: :query,
+      #resend_envelope: :query,
       Envelopes: :body
     }
 
